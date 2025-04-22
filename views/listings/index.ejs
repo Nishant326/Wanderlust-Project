@@ -1,0 +1,207 @@
+<%-layout("layouts/boilerplate.ejs")%>
+  <!-- <form action="/listings/new" method="get">
+        <button>Add New Listing</button>
+  </form> -->
+  <style>
+    #filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter {
+      text-align: center;
+      margin-left: 1rem;
+      margin-top: 2rem;
+      opacity: 0.7;
+    }
+
+    .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .filter p {
+      font-size: 0.8rem;
+    }
+
+    .taxInfo {
+      display: none;
+    }
+
+    .tax-toggle {
+      border: 1px solid black;
+      border-radius: 1rem;
+      height: 3.25rem;
+      padding: 1rem;
+      margin-left: 1rem;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      
+    }
+    .tax-switch{
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+    }
+    #bars{
+      display: none;
+    }
+    #bars:hover{
+      cursor: pointer;
+
+    }
+    @media(min-width:360px) and (max-width:873px){
+      .filter{
+        display:none;
+      }
+      #bars{
+      display:inline;
+      font-size:1.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    }
+  </style>
+  <div>
+    <i class="fa-solid fa-bars" id="bars"></i>
+  </div>
+  <div id="filters">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="filter">
+      <div>
+        <!-- <input type="button" value="" > -->
+        <a href="/listings/search?search=Trending"><i class="fa-solid fa-fire"></i>
+        </a>
+      </div>
+      <a href="/listings/search?search=Trending">Trending</a>
+    </div>
+
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Rooms">
+          <i class="fa-solid fa-bed"></i>
+        </a>
+
+      </div>
+      <a href="/listings/search?search=Rooms">Rooms</a>
+
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Iconic">
+          <i class="fa-solid fa-mountain-city"></i>
+        </a>
+        
+      </div>
+      <a href="/listings/search?search=Iconic">Iconic Cities</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Mountain">
+          <i class="fa-solid fa-mountain"></i>
+        </a>
+     
+      </div>
+      <a href="/listings/search?search=Mountain">Mountain</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Castle">
+          <i class="fa-brands fa-fort-awesome"></i>
+        </a>       
+      </div>
+      <a href="/listings/search?search=Castle">Castle</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Amazing">
+          <i class="fa-solid fa-person-swimming"></i>
+        </a>
+      </div>
+      <a href="/listings/search?search=Amazing">Amazing Pools</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Camping">
+        <i class="fa-solid fa-campground"></i>
+        </a>
+      </div>
+      <a href="/listings/search?search=Camping">Camping</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Farms">
+        <i class="fa-solid fa-cow"></i>
+        </a>
+      </div>
+      <a href="/listings/search?search=Farms">Farms</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Arctic">
+        <i class="fa-solid fa-snowflake"></i>
+        </a>
+      </div>
+      <a href="/listings/search?search=Arctic">Arctic</a>
+    </div>
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Doms">
+        <i class="fa-solid fa-igloo"></i>
+      </a>
+      </div>
+      <a href="/listings/search?search=Doms">Doms</a>
+    </div>
+
+    <div class="filter">
+      <div>
+        <a href="/listings/search?search=Boats">
+          <i class="fa-solid fa-ship"></i>
+        </a>
+      </div>
+      <a href="/listings/search?search=Boats">Boats</a>
+    </div>
+    <div class="tax-toggle filter">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input tax-switch" type="checkbox" role="switch" id="switchCheck">
+        <label class="form-check-label tax-switch" for="switchCheck">Display Totle after Taxes</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-2 ">
+    <%for(let listing of allListings){ %>
+      <a href="/listings/<%=listing._id%>" class="listing-link">
+        <div class="card col listing-card">
+          <img src="<%=listing.image.url%>" class="card-img-top" style="height:20rem;" alt="listing image">
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+              <b>
+                <%=listing.title%>
+              </b><br>
+              &#8377;<%=listing.price.toLocaleString("en-IN")%>/night
+                <i class="taxInfo">
+                  &nbsp; &nbsp; 18%GST
+                </i>
+
+
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <%}%>
+  </div>
+  <script>
+
+  </script>
