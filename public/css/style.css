@@ -170,5 +170,9 @@ body{
         color: #222222 !important
 
     }
+    #map{
+        height:200px;
+        width:50vh;
+    }
   
   }
