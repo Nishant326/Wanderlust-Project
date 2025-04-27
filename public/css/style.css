@@ -175,8 +175,8 @@ body {
     }
 
     #map {
-        height: 200px;
-        width: 100vh;
-    }
-
+        height: 200px; /* smaller height */
+        width: 90vw;   /* use viewport width, better for mobile */
+      }
+  
 };
