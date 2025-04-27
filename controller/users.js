@@ -11,7 +11,6 @@ module.exports.signUpUser = async(req,res)=>{
         email,username
     });
     const registerdUser =  await User.register(newUser,password);
-    console.log(registerdUser);
     req.login(registerdUser,(err)=>{
         if(err){
             return  next(err);

@@ -33,7 +33,6 @@ module.exports.searchListing = async (req, res) => {
     // res.render("index.ejs",{allListing})
 };
 module.exports.newRoute = (req, res) => {
-    console.log(req.user);
     res.render("listings/new.ejs");
 }
 
